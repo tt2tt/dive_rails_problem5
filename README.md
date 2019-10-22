@@ -18,6 +18,8 @@ Column   | Type
 id       | bigint
 user_id  | bigint
 label_id | bigint
+name     | string
+detail   | text
 deadline | datetime
 priority | integer
 status   | integer
