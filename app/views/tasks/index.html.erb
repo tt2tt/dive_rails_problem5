@@ -1,7 +1,12 @@
+<h1>タスク一覧画面</h1>
 <% @tasks.each do |task| %>
+<div class="task">
   <%= task.name %>
   <%= task.detail %>
   <%= link_to 'Show', task, class: 'btn btn-default' %>
 	<%= link_to 'Edit', edit_task_path(task), class: 'btn btn-info' %> |
 	<%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-danger' %>
+</div>
 <% end %>
+
+<%= link_to 'タスクを作成する', new_task_path %>
