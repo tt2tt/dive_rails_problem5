@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   before_action :set_id, only:[:show,:edit,:update,:destroy]
 
   def index
-    @tasks =  Task.all
+    @tasks =  Task.latest
   end
 
   def new
