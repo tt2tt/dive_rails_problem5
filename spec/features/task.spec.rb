@@ -36,10 +36,21 @@ RSpec.feature "タスク管理機能", type: :feature do
 
   scenario 'タスクが作成日時の降順に並んでいるかのテスト' do
     visit tasks_path
+
     first_task = all('.tasks .task')[0]
     third_task = all('.tasks .task')[2]
-    save_and_open_page
+
     expect(first_task).to have_content 'mof3'
     expect(third_task).to have_content 'test1'
+  end
+
+  scenario 'タスクが終了期限によって昇順に並び変えられるかのテスト' do
+    visit tasks_path(sort_expired: "true")
+
+    first_task = all('.tasks .task')[0]
+    third_task = all('.tasks .task')[2]
+    
+    expect(first_task).to have_content 'test1'
+    expect(third_task).to have_content 'mof3'
   end
 end

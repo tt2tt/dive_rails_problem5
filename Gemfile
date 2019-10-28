@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
-
+# gem "bootstrap4-datetime-picker-rails"
+# gem 'momentjs-rails'
+gem "font-awesome-rails"
 gem 'factory_bot_rails'
 gem 'spring-commands-rspec'
 gem 'rspec-rails'
