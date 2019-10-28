@@ -2,7 +2,7 @@
 
 ## テーブル
 
-## User
+Userテーブル
 
 Column          | Type
 --------------- | ------
@@ -11,7 +11,7 @@ name            | string
 email           | string
 password_digest | string
 
-## Task
+Taskテーブル
 
 Column   | Type
 -------- | --------
@@ -24,17 +24,35 @@ deadline | datetime
 priority | integer
 status   | integer
 
-## Label
+Labelテーブル
 
 Column | Type
 ------ | ------
 id     | bigint
 name   | string
 
-## Task_Label
+Task_Labelテーブル
 
 Column   | Type
 -------- | ------
 id       | bigint
 task_id  | bigint
 label_id | bigint
+
+## Herokuへデプロイ
+
+Herokuへログイン
+
+$ heroku create
+
+Herokuにアプリの作成
+
+$ heroku create
+
+Herokuへデプロイ
+
+$ git push heroku master
+
+データベースの移行
+
+$ heroku run rails db:migrate
