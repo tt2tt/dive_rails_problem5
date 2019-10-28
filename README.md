@@ -43,16 +43,16 @@ label_id | bigint
 
 Herokuへログイン
 
-$ heroku create
+'$ heroku login'
 
 Herokuにアプリの作成
 
-$ heroku create
+'$ heroku create'
 
 Herokuへデプロイ
 
-$ git push heroku master
+'$ git push heroku master'
 
 データベースの移行
 
-$ heroku run rails db:migrate
+'$ heroku run rails db:migrate'
