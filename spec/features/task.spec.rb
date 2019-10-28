@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.feature "タスク管理機能", type: :feature do
   background do
     FactoryBot.create(:task)
-    @task = FactoryBot.create(:second_task)
+    FactoryBot.create(:second_task)
     FactoryBot.create(:third_task)
   end
   scenario 'タスク一覧のテスト' do
@@ -35,9 +35,6 @@ RSpec.feature "タスク管理機能", type: :feature do
   end
 
   scenario 'タスクが作成日時の降順に並んでいるかのテスト' do
-    second_task = Task.find(@task.id)
-    second_task.update(name: 'タスク名変更', detail: 'タスク詳細変更')
-
     visit tasks_path
     first_task = all('.tasks .task')[0]
     third_task = all('.tasks .task')[2]
