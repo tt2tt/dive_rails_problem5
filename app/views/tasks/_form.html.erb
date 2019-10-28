@@ -18,8 +18,13 @@
 
   <div class="task_detail">
     <%= form.label :detail %>
-    <%= form.text_field :detail %>
+    <%= form.text_area :detail %>
   </div>
 
-  <%= form.submit 'Save', id: "task_save" %>
+  <div class="task_deadline">
+    <%= form.label :deadline %>
+    <%= form.datetime_select :deadline %>
+  </div>
+
+  <%= form.submit 'タスク作成', id: "task_save" %>
 <% end %>

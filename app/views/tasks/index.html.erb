@@ -1,10 +1,11 @@
-<%= t('view.sample') %>
 <h1>タスク一覧画面</h1>
+<%= link_to '終了期限でソートする', tasks_path(sort_expired: "true") %>
 <div class="tasks">
   <% @tasks.each do |task| %>
   <p class="task">
     <%= task.name %>
     <%= task.detail %>
+    <%= l task.deadline %>
     <%= link_to '詳細', task, class: 'btn btn-default' %>
     <%= link_to '編集', edit_task_path(task), class: 'btn btn-info' %> |
     <%= link_to '削除', task, method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-danger' %>

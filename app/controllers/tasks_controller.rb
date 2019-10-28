@@ -2,7 +2,11 @@ class TasksController < ApplicationController
   before_action :set_id, only:[:show,:edit,:update,:destroy]
 
   def index
-    @tasks =  Task.latest
+    if params[:sort_expired]
+      @tasks = Task.sort_by_deadline
+    else
+      @tasks = Task.sort_by_crated_at
+    end
   end
 
   def new
@@ -40,7 +44,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :detail)
+    params.require(:task).permit(:name, :detail, :deadline)
   end
 
   def set_id
