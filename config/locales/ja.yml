@@ -10,6 +10,7 @@ ja:
         name: タスク名
         detail: タスク詳細
         deadline: 終了期限
+        status: ステータス
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

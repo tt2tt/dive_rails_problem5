@@ -17,4 +17,10 @@ FactoryBot.define do
     detail { 'mof3' }
     deadline { '2016-10-28 07:24:00' }
   end
+
+  factory :forth_task, class: Task  do
+    name { 'test_task_04' }
+    detail { 'manyou4' }
+    deadline {'2014-10-28 07:22:00'}
+  end
 end

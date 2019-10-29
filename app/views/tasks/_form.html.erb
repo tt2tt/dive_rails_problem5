@@ -1,6 +1,6 @@
 <%= form_with(model: @task, local: true) do |form| %>
 <% if @task.errors.any? %>
-  <div id="error_explanation">
+  <div id='error_explanation'>
     <h2><%= @task.errors.count %>件のエラーがあります。</h2>
     <ul>
 
@@ -11,20 +11,25 @@
   </div>
   <% end %>
 
-  <div class="task_title">
+  <div class='task_title'>
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="task_detail">
+  <div class='task_detail'>
     <%= form.label :detail %>
     <%= form.text_area :detail %>
   </div>
 
-  <div class="task_deadline">
+  <div class='task_deadline'>
     <%= form.label :deadline %>
     <%= form.datetime_select :deadline %>
   </div>
 
-  <%= form.submit 'タスク作成', id: "task_save" %>
+  <div class='task_status'>
+    <%= form.label :status %>
+    <%= form.select :status , Task.status.options %>
+  </div>
+
+  <%= form.submit 'タスク作成', id: 'task_save' %>
 <% end %>
