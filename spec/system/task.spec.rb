@@ -5,6 +5,7 @@ RSpec.feature "タスク管理機能", type: :feature do
     FactoryBot.create(:task)
     FactoryBot.create(:second_task)
     FactoryBot.create(:third_task)
+    FactoryBot.create(:forth_task)
   end
   scenario 'タスク一覧のテスト' do
     visit tasks_path
@@ -38,19 +39,30 @@ RSpec.feature "タスク管理機能", type: :feature do
     visit tasks_path
 
     first_task = all('.tasks .task')[0]
-    third_task = all('.tasks .task')[2]
+    forth_task = all('.tasks .task')[3]
 
-    expect(first_task).to have_content 'mof3'
-    expect(third_task).to have_content 'test1'
+    expect(first_task).to have_content 'manyou4'
+    expect(forth_task).to have_content 'test1'
   end
 
   scenario 'タスクが終了期限によって昇順に並び変えられるかのテスト' do
     visit tasks_path(sort_expired: "true")
 
     first_task = all('.tasks .task')[0]
-    third_task = all('.tasks .task')[2]
-    
-    expect(first_task).to have_content 'test1'
-    expect(third_task).to have_content 'mof3'
+    forth_task = all('.tasks .task')[3]
+
+    expect(first_task).to have_content 'manyou4'
+    expect(forth_task).to have_content 'mof3'
+  end
+
+  scenario 'タスクを検索できるかのテスト' do
+    visit tasks_path
+
+    fill_in 'タスク名', with: 'test_task_01'
+    select "完了", from: "task[status]"
+
+    click_on "検索"
+
+    expect(page).to have_content 'manyou4'
   end
 end

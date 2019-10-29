@@ -1,5 +1,13 @@
 <h1>タスク一覧画面</h1>
 
+<p>検索</p>
+<%= form_with(model: Task.new, url: tasks_path, method: :get, local: true) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :status %>
+  <%= f.select :status, Task.status.options, include_blank: true, selected: '' %>
+  <%= f.submit '検索', id: 'search_button' %>
+  <% end %>
 
 <%= link_to '終了期限でソートする', tasks_path(sort_expired: "true") %>
 <div class="tasks">

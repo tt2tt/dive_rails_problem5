@@ -4,6 +4,8 @@ class TasksController < ApplicationController
   def index
     if params[:sort_expired]
       @tasks = Task.sort_by_deadline
+    elsif params[:task]
+      @tasks = Task.search(params[:task] ).sort_by_crated_at
     else
       @tasks = Task.sort_by_crated_at
     end
