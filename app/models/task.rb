@@ -12,6 +12,7 @@ class Task < ApplicationRecord
   scope :search_by_status, -> (search){where(status: "#{search[:status]}")}
 
   enumerize :status, in: { 未着手: 0, 着手中: 1, 完了: 2 }
+  enumerize :priority, in: { 低: 0, 中: 1, 高: 2}
 
   def self.search(search)
     if search[:name].present? && search[:status].present?

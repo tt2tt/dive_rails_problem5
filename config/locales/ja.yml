@@ -11,6 +11,7 @@ ja:
         detail: タスク詳細
         deadline: 終了期限
         status: ステータス
+        priority: 優先度
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
