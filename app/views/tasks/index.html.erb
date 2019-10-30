@@ -10,6 +10,8 @@
   <% end %>
 
 <%= link_to '終了期限でソートする', tasks_path(sort_expired: "true") %>
+<%= link_to '優先度でソートする', tasks_path(sort_priority: "true") %>
+
 <div class="tasks">
   <% @tasks.each do |task| %>
   <p class="task">
@@ -17,6 +19,7 @@
     <%= task.detail %>
     <%= l task.deadline %>
     <%= task.status %>
+    <%= task.priority %>
     <%= link_to '詳細', task, class: 'btn btn-default' %>
     <%= link_to '編集', edit_task_path(task), class: 'btn btn-info' %> |
     <%= link_to '削除', task, method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-danger' %>

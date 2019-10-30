@@ -28,7 +28,12 @@
 
   <div class='task_status'>
     <%= form.label :status %>
-    <%= form.select :status , Task.status.options %>
+    <%= form.select :status ,Task.status.options  %>
+  </div>
+
+  <div class="task_priority">
+    <%= form.label :priority %>
+    <%= form.select :priority, Task.priority.options %>
   </div>
 
   <%= form.submit 'タスク作成', id: 'task_save' %>
