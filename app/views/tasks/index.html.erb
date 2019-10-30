@@ -10,6 +10,8 @@
   <% end %>
 
 <%= link_to '終了期限でソートする', tasks_path(sort_expired: "true") %>
+<%= link_to '優先度でソートする', tasks_path(sort_priority: "true") %>
+
 <div class="tasks">
   <% @tasks.each do |task| %>
   <p class="task">
