@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
   before_action :set_id, only:[:show,:edit,:update,:destroy]
 
+  PER = 5
+
   def index
     if params[:sort_expired]
       @tasks = Task.sort_by_deadline
@@ -9,7 +11,7 @@ class TasksController < ApplicationController
     elsif params[:task]
       @tasks = Task.search(params[:task] ).sort_by_crated_at
     else
-      @tasks = Task.sort_by_crated_at
+      @tasks = Task.sort_by_crated_at.page(params[:page]).per(PER)
     end
   end
 

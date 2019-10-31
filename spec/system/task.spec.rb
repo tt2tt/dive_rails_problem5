@@ -57,7 +57,7 @@ RSpec.feature "タスク管理機能", type: :feature do
 
   scenario 'タスクが優先度によって降順に並び変えられるかのテスト' do
       visit tasks_path(sort_priority: "true")
-save_and_open_page
+      
       first_task = all('.tasks .task')[0]
       forth_task = all('.tasks .task')[3]
 
