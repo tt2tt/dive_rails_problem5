@@ -1,3 +1,5 @@
 save_and_open_page
 
 binding.pry
+
+git commit --amend --no-edit

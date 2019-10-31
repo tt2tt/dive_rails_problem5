@@ -2,7 +2,12 @@
   "name": "manyou",
   "private": true,
   "dependencies": {
-    "bootstrap": "^4.3.1",
+    "bootstrap": "^4.1.1",
     "jquery": "^3.4.1"
-  }
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:tt2tt/dive_rails_problem5.git",
+  "author": "”taro <”groveleffect@gmail.com”>",
+  "license": "MIT"
 }

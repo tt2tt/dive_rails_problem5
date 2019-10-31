@@ -14,6 +14,8 @@ gem 'launchy'
 gem 'enumerize'
 gem 'kaminari'
 # gem 'kaminari-bootstrap'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
