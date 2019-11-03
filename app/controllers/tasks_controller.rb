@@ -5,11 +5,11 @@ class TasksController < ApplicationController
 
   def index
     if params[:sort_expired]
-      @tasks = Task.sort_by_deadline
+      @tasks = Task.sort_by_deadline.page(params[:page]).per(PER)
     elsif params[:sort_priority]
-      @tasks =Task.sort_by_priority
+      @tasks =Task.sort_by_priority.page(params[:page]).per(PER)
     elsif params[:task]
-      @tasks = Task.search(params[:task] ).sort_by_crated_at
+      @tasks = Task.search(params[:task] ).sort_by_crated_at.page(params[:page]).per(PER)
     else
       @tasks = Task.sort_by_crated_at.page(params[:page]).per(PER)
     end

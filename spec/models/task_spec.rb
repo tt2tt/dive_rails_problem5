@@ -35,6 +35,7 @@ RSpec.describe Task, type: :model do
     result1 = FactoryBot.create(:second_task)
     FactoryBot.create(:third_task)
     FactoryBot.create(:forth_task)
+    FactoryBot.create(:fifth_task)
 
     result = Task.search(task = {name: 'test_task_02', status: ''})[0]
 
@@ -46,6 +47,7 @@ RSpec.describe Task, type: :model do
     FactoryBot.create(:second_task)
     FactoryBot.create(:third_task)
     FactoryBot.create(:forth_task)
+    FactoryBot.create(:fifth_task)
 
     result = Task.search(task = {name: '', status: '未着手'})[0]
 
@@ -57,8 +59,9 @@ RSpec.describe Task, type: :model do
     FactoryBot.create(:second_task)
     FactoryBot.create(:third_task)
     result1 = FactoryBot.create(:forth_task)
+    FactoryBot.create(:fifth_task)
 
-    result = Task.search(task = {name: 'test_task_01', status: '完了'})[0]
+    result = Task.search(task = {name: 'test_task_04', status: '完了'})[0]
 
     expect(result).to eq result1
   end

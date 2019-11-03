@@ -10,9 +10,19 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    <%= yield %>
+    <div class="container-fluid">
+      <header>
+        <h1 id='title'>My ToDoList</h1>
+      </header>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
+    <div class="row">
+      <%= yield %>
+    </div>
+    <footer>
+      <h3>株式会社万葉様新入社員教育課題</h3>
+    </footer>
+  </div>
   </body>
 </html>

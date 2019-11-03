@@ -1,40 +1,65 @@
-<%= form_with(model: @task, local: true) do |form| %>
-<% if @task.errors.any? %>
-  <div id='error_explanation'>
-    <h2><%= @task.errors.count %>件のエラーがあります。</h2>
-    <ul>
-
-    <% @task.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+<div class="task_form">
+  <%= form_with(model: @task, local: true) do |form| %>
+  <% if @task.errors.any? %>
+    <div id='error_explanation'>
+      <h2><%= @task.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
     <% end %>
-    </ul>
-  </div>
+
+    <div class='task_title'>
+      <p>
+        <%= form.label :name %>
+      </p>
+      <p>
+        <%= form.text_field :name %>
+      </p>
+    </div>
+
+    <div class='task_detail'>
+      <p>
+        <%= form.label :detail %>
+      </p>
+      <p>
+        <%= form.text_area :detail %>
+      </p>
+    </div>
+
+    <div class='task_deadline'>
+      <p>
+        <%= form.label :deadline %>
+      </p>
+      <p>
+        <%= form.datetime_select :deadline %>
+      </p>
+    </div>
+
+    <div class='task_status'>
+      <p>
+        <%= form.label :status %>
+      </p>
+      <p>
+        <%= form.select :status ,Task.status.options  %>
+      </p>
+    </div>
+
+    <div class="task_priority">
+      <p>
+        <%= form.label :priority %>
+      </p>
+      <p>
+        <%= form.select :priority, Task.priority.options %>
+      </p>
+    </div>
+
+    <p class="task_create">
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+      <%= form.submit "#{form_name}", id: 'task_save' %>
+    </p>
   <% end %>
 
-  <div class='task_title'>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class='task_detail'>
-    <%= form.label :detail %>
-    <%= form.text_area :detail %>
-  </div>
-
-  <div class='task_deadline'>
-    <%= form.label :deadline %>
-    <%= form.datetime_select :deadline %>
-  </div>
-
-  <div class='task_status'>
-    <%= form.label :status %>
-    <%= form.select :status ,Task.status.options  %>
-  </div>
-
-  <div class="task_priority">
-    <%= form.label :priority %>
-    <%= form.select :priority, Task.priority.options %>
-  </div>
-
-  <%= form.submit 'タスク作成', id: 'task_save' %>
-<% end %>
+</div>

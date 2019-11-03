@@ -1,3 +1,102 @@
 // Place all the styles related to the Tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.task_index{
+  padding-top: 20px;
+  padding-left:240px;
+  margin-right: 0;
+}
+.tasks{
+  margin-bottom: 20px;
+}
+.task p{
+  margin-bottom: 0;
+}
+.task{
+  margin-bottom: 10px;
+  background-color: #FFF;
+  width: 600px;
+}
+.task a{
+  border-bottom: #000;
+  color: #000;
+}
+.sort_links p{
+  margin: 0;
+}
+.sort_links .bottom_link{
+margin-bottom: 20px;
+}
+.searchs{
+  width: 400px;
+  height: 400px;
+  margin-top: 20px;
+  margin-left:120px;
+  margin-right: 20px;
+}
+.searchs h3{
+  margin-top: 20px;
+}
+.task_show{
+  margin-top: 40px;
+  margin-left: 240px;
+}
+.content{
+  margin-left: 75px;
+}
+.content h3{
+  margin-top: 20px;
+  position: relative;
+}
+.task_show{
+  background-color: #FFF;
+  width: 1000px;
+}
+.task_show p{
+  width: 800px;
+}
+.task_detail{
+  width: 800px;
+  word-wrap: break-word;
+}
+.task_show p{
+  padding: 0;
+  margin: 0;
+}
+.task_top{
+  border: 1px solid #000;
+}
+.middle{
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.task_last{
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  margin-bottom: 20px;
+}
+.task_option{
+  position: absolute;
+  top: 130px;
+  right: 350px;
+}
+.task_form{
+  border: 1px solid #000;
+  width: 400px;
+  height: 400px;
+  margin-top: 80px;
+  margin-left: 500px;
+}
+.task_form p{
+  margin-left: 50px;
+  margin-bottom: 0;
+}
+.task_title{
+  margin-top: 20px;
+}
+.task_create{
+  margin-top: 10px;
+}
