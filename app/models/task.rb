@@ -1,6 +1,8 @@
 class Task < ApplicationRecord
   extend Enumerize
 
+  belongs_to :user
+
   validates :name, presence: true, length: {maximum: 50}
   validates :detail, presence: true, length: {maximum: 200}
   validates :deadline, presence: true

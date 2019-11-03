@@ -1,9 +1,6 @@
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Sawarabi+Mincho');
 
-// html,body{
-//      height: 100%;
-// }
 
 .container-fluid{
   padding: 0;
@@ -13,18 +10,28 @@
   box-sizing: border-box;
   background-color: #EEE;
 }
-
 header{
   height: 70px;
   background-color: #3399FF;
 }
-
+#title{
+  display: inline-block;
+}
+header a{
+  float: right;
+  color: #FFF;
+  font-size: 25px;
+  padding: 15px;
+  right: 50px;
+}
+.session_right{
+  margin-right: 140px;
+}
 #title{
   font-family: 'Sawarabi Mincho', sans-serif;
   line-height: 70px;
   margin-left: 160px;
 }
-
 footer{
   height: 55px;
   width: 100%;
@@ -32,7 +39,6 @@ footer{
   position: absolute;
   bottom: 0;
 }
-
 footer h3{
   color: #fff;
   text-align: center;

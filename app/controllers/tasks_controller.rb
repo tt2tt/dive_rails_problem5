@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_id, only:[:show,:edit,:update,:destroy]
+  before_action :login_check
 
   PER = 5
 
@@ -26,7 +27,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task =  Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     if @task.save
       redirect_to tasks_path, notice: 'タスクを作成しました'
     else
@@ -35,7 +36,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
+    if@task = current_user.tasks.build(task_params)
       redirect_to tasks_path, notice: 'タスクを編集しました'
     else
       render 'edit'
@@ -55,5 +56,11 @@ class TasksController < ApplicationController
 
   def set_id
     @task = Task.find(params[:id])
+  end
+
+  def login_check
+    unless logged_in?
+      redirect_to new_session_path
+    end
   end
 end
