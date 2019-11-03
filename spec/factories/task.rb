@@ -25,10 +25,18 @@ FactoryBot.define do
   end
 
   factory :forth_task, class: Task  do
-    name { 'test_task_01' }
+    name { 'test_task_04' }
     detail { 'manyou4' }
     deadline {'2014-10-28 07:22:00'}
     status { '完了' }
+    priority { '高'  }
+  end
+
+  factory :fifth_task, class: Task  do
+    name { 'test_task_04' }
+    detail { 'manyou4' }
+    deadline {'2015-10-28 07:22:00'}
+    status { '着手中' }
     priority { '高'  }
   end
 end

@@ -1,7 +1,27 @@
-<h1>タスク詳細</h1>
+<div class="task_show">
+  <div class="content">
+    <h3>タスク詳細</h3>
 
-<p><%= @task.name %></p>
-<p><%= @task.detail %></p>
-<p><%= l @task.deadline %></p>
+    <p class="task_top">
+      タスク名 &ensp; <%= @task.name %>&ensp;(<%= @task.status %>)
+    </p>
+    <p class="middle">
+      優先度 &ensp; &ensp; <%= @task.priority %>
+    </p>
+    <p class="middle">
+      終了期限&ensp; <%= l @task.deadline %>
+    </p>
+    <p class="task_detail task_last">
+      <%= @task.detail %>
+    </p>
 
-<%= link_to 'タスク一覧へ', tasks_path %>
+    <div class="task_option">
+      <%= link_to '編集', edit_task_path(@task), class: 'btn btn-info' %>
+      <%= link_to '削除', @task, method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-danger' %>
+    </div>
+    <br>
+    <p>
+      <%= link_to 'タスク一覧へ', tasks_path %>
+    </p>
+  </div>
+</div>

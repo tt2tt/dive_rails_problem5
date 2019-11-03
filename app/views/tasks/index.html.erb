@@ -1,32 +1,47 @@
-<h1>タスク一覧画面</h1>
 
-<p>検索</p>
-<%= form_with(model: Task.new, url: tasks_path, method: :get, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :status %>
-  <%= f.select :status, Task.status.options, include_blank: true, selected: '' %>
-  <%= f.submit '検索', id: 'search_button' %>
-  <% end %>
+<div class="task_index col-md-7">
+  <h2>タスク一覧</h2>
 
-<%= link_to '終了期限でソートする', tasks_path(sort_expired: "true") %>
-<%= link_to '優先度でソートする', tasks_path(sort_priority: "true") %>
+  <div class="sort_links">
+    <p>
+      <%= link_to '終了期限でソートする', tasks_path(sort_expired: "true") %>
+    </p>
+    <p class="bottom_link">
+      <%= link_to '優先度でソートする', tasks_path(sort_priority: "true") %>
+    </p>
+  </div>
 
-<div class="tasks">
-  <% @tasks.each do |task| %>
-  <p class="task">
-    <%= task.name %>
-    <%= task.detail %>
-    <%= l task.deadline %>
-    <%= task.status %>
-    <%= task.priority %>
-    <%= link_to '詳細', task, class: 'btn btn-default' %>
-    <%= link_to '編集', edit_task_path(task), class: 'btn btn-info' %> |
-    <%= link_to '削除', task, method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-danger' %>
-  </p>
-  <% end %>
+  <div class="tasks">
+    <% @tasks.each do |task| %>
+    <div class="task">
+      <%= link_to "#{task.name} &ensp;(#{task.status})".html_safe, task, class: "task_link" %>
+      <p>
+        優先度 &nbsp; <%= task.priority %>
+      </p>
+      <%= l task.deadline %>
+    </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'タスクを作成する', new_task_path %>
+
+  <%= paginate @tasks %>
 </div>
 
-<%= link_to 'タスクを作成する', new_task_path %>
+<div class="col-md-5">
+  <div class="searchs">
+    <h3>検索</h3>
 
-<%= paginate @tasks %>
+    <%= form_with(model: Task.new, url: tasks_path, method: :get, local: true) do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :status %>
+      <%= f.select :status, Task.status.options, include_blank: true, selected: '' %>
+    </p>
+      <%= f.submit '検索', id: 'search_button' %>
+    <% end %>
+  </div>
+</div>
