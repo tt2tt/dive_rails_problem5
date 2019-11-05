@@ -6,13 +6,13 @@ class TasksController < ApplicationController
 
   def index
     if params[:sort_expired]
-      @tasks = Task.sort_by_deadline.page(params[:page]).per(PER)
+      @tasks = Task.sort_by_deadline.page(params[:page]).per(PER).my_task(current_user)
     elsif params[:sort_priority]
-      @tasks =Task.sort_by_priority.page(params[:page]).per(PER)
+      @tasks =Task.sort_by_priority.page(params[:page]).per(PER).my_task(current_user)
     elsif params[:task]
-      @tasks = Task.search(params[:task] ).sort_by_crated_at.page(params[:page]).per(PER)
+      @tasks = Task.search(params[:task] ).sort_by_crated_at.page(params[:page]).per(PER).my_task(current_user)
     else
-      @tasks = Task.sort_by_crated_at.page(params[:page]).per(PER)
+      @tasks = Task.sort_by_crated_at.page(params[:page]).per(PER).my_task(current_user)
     end
   end
 
@@ -60,7 +60,8 @@ class TasksController < ApplicationController
 
   def login_check
     unless logged_in?
-      redirect_to new_session_path
+      redirect_to new_session_path, notice: 'ログインしてください'
     end
   end
+
 end

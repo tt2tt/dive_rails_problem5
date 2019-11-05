@@ -1,13 +1,17 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
+    if logged_in?
+      redirect_to user_path(current_user.id)
+    else
+      @user=User.new
+    end
   end
 
   def show
     if params[:id].to_i == current_user.id
       @user = User.find(params[:id])
     else
-      redirect_to new_session_path
+      redirect_to user_path(current_user.id)
     end
   end
 

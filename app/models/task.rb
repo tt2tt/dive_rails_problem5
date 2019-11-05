@@ -7,6 +7,7 @@ class Task < ApplicationRecord
   validates :detail, presence: true, length: {maximum: 200}
   validates :deadline, presence: true
 
+  scope :my_task, -> (current_user){where(user_id: current_user.id)}
   scope :sort_by_crated_at, -> {order(created_at: :desc)}
   scope :sort_by_deadline, -> {order(deadline: :asc)}
   scope :sort_by_priority, -> {order(priority: :desc)}
@@ -27,5 +28,6 @@ class Task < ApplicationRecord
     else
       Task.sort_by_crated_at
     end
-    end
+  end
+
 end

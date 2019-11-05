@@ -15,7 +15,7 @@
         <h1 id='title'>My ToDoList</h1>
         <% if logged_in? %>
           <%= link_to "ログアウト", session_path(current_user.id), method: :delete,  class: 'session_right' %>
-          <%= link_to "プロフィール", user_path(current_user.id) %>
+          <%= link_to "マイページ", user_path(current_user.id) %>
         <% else %>
           <%= link_to "サインアップ", new_user_path, class: 'session_right' %>
           <%= link_to "ログイン", new_session_path %>

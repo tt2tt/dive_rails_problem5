@@ -2,13 +2,21 @@ require 'rails_helper'
 
 RSpec.feature "タスク管理機能", type: :feature do
   background do
-    FactoryBot.create(:task)
-    FactoryBot.create(:second_task)
-    FactoryBot.create(:third_task)
-    FactoryBot.create(:forth_task)
-    FactoryBot.create(:fifth_task)
+    user = FactoryBot.create(:user)
+
+    FactoryBot.create(:task, user: user)
+    FactoryBot.create(:second_task, user: user)
+    FactoryBot.create(:third_task, user: user)
+    FactoryBot.create(:forth_task, user: user)
+    FactoryBot.create(:fifth_task, user: user)
+
+    visit new_session_path
+    fill_in 'メールアドレス', with: 'aaa@aaa.com'
+    fill_in 'パスワード', with: 'A' * 6
+    click_button 'user_login'
   end
-  scenario 'タスク一覧のテスト' do
+
+  scenario 'タスク一覧' do
     visit tasks_path
 
     expect(page).to have_content 'test_task_01'
@@ -16,7 +24,7 @@ RSpec.feature "タスク管理機能", type: :feature do
     expect(page).to have_content 'test_task_03'
   end
 
-  scenario 'タスク作成のテスト' do
+  scenario 'タスク作成' do
     visit new_task_path
 
     fill_in 'タスク名', with: '買い物に行く'
@@ -29,13 +37,13 @@ RSpec.feature "タスク管理機能", type: :feature do
     expect(page).to have_content '買い物に行く'
   end
 
-  scenario 'タスク詳細のテスト' do
+  scenario 'タスク詳細' do
     visit tasks_path(id: 1)
 
     expect(page).to have_content 'test_task_01'
   end
 
-  scenario 'タスクが作成日時の降順に並んでいるかのテスト' do
+  scenario 'タスクが作成日時の降順に並んでいる' do
     visit tasks_path
 
     first_task = all('.tasks .task')[0]
@@ -45,7 +53,7 @@ RSpec.feature "タスク管理機能", type: :feature do
     expect(fifth_task).to have_content 'test_task_01'
   end
 
-  scenario 'タスクが終了期限によって昇順に並び変えられるかのテスト' do
+  scenario 'タスクが終了期限によって昇順に並び変えられる' do
     visit tasks_path(sort_expired: "true")
 
     first_task = all('.tasks .task')[0]
@@ -55,17 +63,17 @@ RSpec.feature "タスク管理機能", type: :feature do
     expect(fifth_task).to have_content 'test_task_03'
   end
 
-  scenario 'タスクが優先度によって降順に並び変えられるかのテスト' do
+  scenario 'タスクが優先度によって降順に並び変えられる' do
       visit tasks_path(sort_priority: "true")
 
       first_task = all('.tasks .task')[0]
       fifth_task = all('.tasks .task')[4]
-      
+
       expect(first_task).to have_content 'test_task_04'
       expect(fifth_task).to have_content 'test_task_01'
   end
 
-  scenario 'タスクを検索できるかのテスト' do
+  scenario 'タスクを検索できる' do
     visit tasks_path
 
     fill_in 'タスク名', with: 'test_task_04'
