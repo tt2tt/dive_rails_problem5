@@ -21,7 +21,7 @@ RSpec.feature 'ユーザー管理機能', type: :feature do
     fill_in 'パスワード', with: 'a' * 6
     fill_in 'パスワード(確認)', with: 'a' * 6
 
-    click_button 'user_save'
+    click_button 'ユーザー登録'
 
     expect(page).to have_content '仮名前'
     expect(page).to have_content 'exam@exam.com'
@@ -39,7 +39,7 @@ RSpec.feature 'ユーザー管理機能', type: :feature do
     fill_in 'メールアドレス', with: 'bbb@bbb.com'
     fill_in 'パスワード', with: 'B' * 6
 
-    click_button 'user_login'
+    click_button 'ログイン'
 
     visit tasks_path
 
@@ -53,7 +53,7 @@ RSpec.feature 'ユーザー管理機能', type: :feature do
     fill_in 'メールアドレス', with: 'bbb@bbb.com'
     fill_in 'パスワード', with: 'B' * 6
 
-    click_button 'user_login'
+    click_button 'ログイン'
 
     expect(page).to have_content 'ログインしました'
   end
@@ -64,7 +64,7 @@ RSpec.feature 'ユーザー管理機能', type: :feature do
     fill_in 'メールアドレス', with: 'bbb@bbb.com'
     fill_in 'パスワード', with: 'B' * 6
 
-    click_button 'user_login'
+    click_button 'ログイン'
 
     visit new_user_path
 
@@ -78,7 +78,7 @@ RSpec.feature 'ユーザー管理機能', type: :feature do
     fill_in 'メールアドレス', with: 'bbb@bbb.com'
     fill_in 'パスワード', with: 'B' * 6
 
-    click_button 'user_login'
+    click_button 'ログイン'
 
     visit user_path(1)
 
@@ -92,7 +92,7 @@ RSpec.feature 'ユーザー管理機能', type: :feature do
     fill_in 'メールアドレス', with: 'bbb@bbb.com'
     fill_in 'パスワード', with: 'B' * 6
 
-    click_button 'user_login'
+    click_button 'ログイン'
 
     click_link 'ログアウト'
 
