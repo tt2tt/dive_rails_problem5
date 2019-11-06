@@ -66,5 +66,16 @@ RSpec.describe Task, type: :model do
     expect(result).to eq result1
   end
 
+  it 'ユーザーが削除されるとタスクも自動で削除される' do
+    FactoryBot.create(:task, user: current_user)
+    FactoryBot.create(:second_task, user: current_user)
+    FactoryBot.create(:third_task, user: current_user)
+
+    current_user.destroy
+    task = Task.all
+
+    expect(task).to eq []
+  end
+
 end
 # @task = current_user.tasks.build(task_params)
