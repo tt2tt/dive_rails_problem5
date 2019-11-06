@@ -3,6 +3,7 @@ class Admin::UsersController < ApplicationController
 
   USER_PER = 8
   TASK_PER = 5
+
   def index
     @users=User.sort_by_id.includes(:tasks).page(params[:page]).per(USER_PER)
   end
@@ -31,13 +32,16 @@ class Admin::UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to admin_user_path(@user.id), notice: 'ユーザーを編集しました'
     else
-      render 'new'
+      render 'edit'
     end
   end
 
   def destroy
-    @user.destroy
-    redirect_to admin_users_path, notice: 'ユーザーを削除しました'
+    if @user.destroy
+      redirect_to admin_users_path, notice: 'ユーザーを削除しました'
+    else
+      redirect_to admin_users_path
+    end
   end
 
   private

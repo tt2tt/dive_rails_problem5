@@ -3,22 +3,3 @@ save_and_open_page
 binding.pry
 
 git commit --amend --no-edit
-
-
-<p>
-  <%= task.name %>
-  (<%= task.status %>)
-</p>
-
-<%= link_to '詳細', task, class: 'btn btn-default' %>
-
-
-<div class="option">
-
-  <%= link_to '編集', edit_task_path(task), class: 'btn btn-info' %> |
-  <%= link_to '削除', task, method: :delete, data: { confirm: 'Are you sure?' },  class: 'btn btn-danger' %>
-</div>
-
-@blog = current_user.blogs.build(blog_params)
-
-@picture = current_user.pictures.build(picture_params)
