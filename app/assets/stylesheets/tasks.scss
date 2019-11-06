@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// index
 .task_index{
   padding-top: 20px;
   padding-left:240px;
@@ -37,7 +38,15 @@ margin-bottom: 20px;
 }
 .searchs h3{
   margin-top: 20px;
+  position: relative;
 }
+.reset{
+position: absolute;
+top: 90px;
+right: 20px;
+}
+
+// show
 .task_show{
   margin-top: 40px;
   margin-left: 240px;
@@ -83,12 +92,18 @@ margin-bottom: 20px;
   top: 130px;
   right: 350px;
 }
+
+// form
 .task_form{
   border: 1px solid #000;
   width: 400px;
-  height: 400px;
+  height: 470px;
   margin-top: 80px;
-  margin-left: 500px;
+  margin-left: 530px;
+}
+.task_form h1{
+  margin-top: 20px;
+  margin-left: 95px;
 }
 .task_form p{
   margin-left: 50px;

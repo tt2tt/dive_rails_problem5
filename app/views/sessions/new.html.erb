@@ -1,12 +1,27 @@
-<h1>ログイン</h1>
+<div class="sessions_new">
+  <h1>ログイン</h1>
 
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+  <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+    <div class="user_email">
+      <p>
+        <%= f.label :email, t('views.email') %>
+      </p>
+      <p>
+        <%= f.email_field :email %>
+      </p>
+    </div>
 
-  <%= f.label :email, t('views.email') %>
-  <%= f.email_field :email %>
+    <div class="user_password">
+      <p>
+        <%= f.label :password, t('views.password') %>
+      </p>
+      <p>
+        <%= f.password_field :password %>
+      </p>
+    </div>
 
-  <%= f.label :password, t('views.password') %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "ログイン", id: 'user_login' %>
-<% end %>
+    <p>
+      <%= f.submit "ログイン", class: 'user_login' %>
+    </p>
+  <% end %>
+</div>
