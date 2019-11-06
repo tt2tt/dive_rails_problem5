@@ -4,13 +4,15 @@ RSpec.feature '管理画面機能', type: :feature do
   background do
     user = FactoryBot.create(:user)
     second_user = FactoryBot.create(:second_user)
+    FactoryBot.create(:admin_user)
 
     FactoryBot.create(:task, user: user)
     FactoryBot.create(:second_task, user: user)
-    FactoryBot.create(:third_task, user: user)
-    FactoryBot.create(:forth_task, user: user)
-    FactoryBot.create(:fifth_task, user: user)
-    FactoryBot.create(:second_task, user: second_user)
+
+    visit new_session_path
+    fill_in 'メールアドレス', with: 'admin@admin.com'
+    fill_in 'パスワード', with: 'adminadmin'
+    click_button 'ログイン'
   end
 
   scenario '一覧画面' do
