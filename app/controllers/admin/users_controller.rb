@@ -1,4 +1,5 @@
 class Admin::UsersController < ApplicationController
+  before_action :admin_check
   before_action :set_user, only:[:show, :edit, :update, :destroy]
 
   USER_PER = 8
@@ -52,6 +53,16 @@ class Admin::UsersController < ApplicationController
 
   def set_user
     @user= User.find(params[:id])
+  end
+
+  def admin_check
+    if current_user
+      unless current_user.admin == true
+        raise Forbidden
+      end
+    else
+      redirect_to new_session_path
+    end
   end
 
 end
