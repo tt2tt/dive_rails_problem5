@@ -1,3 +1,24 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// new
+.sessions_new{
+  border: 1px solid #000;
+  width: 300px;
+  height: 270px;
+  margin-top: 80px;
+  margin-left: 580px;
+}
+.sessions_new h1{
+  margin-top: 20px;
+  margin-left: 70px;
+}
+ .sessions_new p{
+   margin: 0;
+   margin-left: 62px;
+ }
+ .user_login{
+   margin-top: 20px;
+   margin-left: 45px;
+ }

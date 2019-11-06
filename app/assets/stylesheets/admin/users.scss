@@ -1,0 +1,72 @@
+// Place all the styles related to the admin/users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// index
+.users{
+  margin-top: 40px;
+}
+.user{
+  margin-top: 10px;
+  margin-left: 630px;
+  background-color: #FFF;
+}
+.users p{
+  margin-bottom: 0;
+  display: block;
+}
+.page_option{
+  margin-top: 10px;
+  margin-left: 680px;
+  margin-bottom: 10px;
+}
+.admin_user_create{
+  margin-left: 660px;
+}
+
+// show
+.admin_show{
+  margin-top: 100px;
+  margin-left: 400px;
+}
+.user_detail{
+  float: left;
+  width: auto;
+  height: 200px;
+  background-color: #FFF;
+}
+.user_detail h3{
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.user_detail p{
+  margin-left: 35px;
+  margin-right: 35px;
+}
+.admin_show .tasks{
+  margin-left: 120px;
+  float: right;
+}
+
+// form
+.admin_form{
+  border: 1px solid #000;
+  width: 300px;
+  height: 380px;
+  margin-top: 80px;
+  margin-left: 580px;
+}
+.admin_form h1{
+  margin-left: 30px;
+}
+.admin_form p{
+  margin: 0;
+  margin-left: 62px;
+}
+.user_name{
+  margin-top: 20px;
+}
+.admin_form .user_save{
+  margin-top: 20px;
+  margin-left: 75px;
+}

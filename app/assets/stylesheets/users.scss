@@ -1,3 +1,29 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// new
+.user_new{
+  border: 1px solid #000;
+  width: 300px;
+  height: 390px;
+  margin-top: 80px;
+  margin-left: 580px;
+}
+.user_new h1{
+  margin-left: 35px;
+}
+.user_new p{
+  margin: 0;
+  margin-left: 65px;
+}
+.user_save{
+  margin-top: 30px;
+  margin-left: 27px;
+}
+
+// show
+.user_show{
+  margin-top: 100px;
+  margin-left: 600px;
+}
