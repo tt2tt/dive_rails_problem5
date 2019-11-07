@@ -35,7 +35,7 @@ Column | Type
 id     | bigint
 name   | string
 
-Task_Labelテーブル
+TaskLabelテーブル
 
 Column   | Type
 -------- | ------

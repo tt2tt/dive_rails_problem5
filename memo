@@ -3,3 +3,15 @@ save_and_open_page
 binding.pry
 
 git commit --amend --no-edit
+
+def self.search(search)
+  if search[:name].present? && search[:status].present?
+   Task.search_by_both(search)
+  elsif search[:name].present?
+    Task.search_by_name(search)
+  elsif search[:status].present?
+    Task.search_by_status(search)
+  else
+    Task.sort_by_crated_at
+  end
+end
