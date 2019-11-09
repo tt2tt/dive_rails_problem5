@@ -30,7 +30,7 @@
 margin-bottom: 20px;
 }
 .searchs{
-  width: 400px;
+  width: 330px;
   height: 400px;
   margin-top: 20px;
   margin-left:120px;
@@ -39,6 +39,9 @@ margin-bottom: 20px;
 .searchs h3{
   margin-top: 20px;
   position: relative;
+}
+.searchs .label_label{
+  margin-left: 0;
 }
 .reset{
 position: absolute;
@@ -106,8 +109,8 @@ right: 20px;
 .form{
   border: 1px solid #000;
   width: 380px;
-  height: 500px;
-  margin-top: 80px;
+  height: 560px;
+  margin-top: 40px;
   margin-left: 530px;
 }
 .task_form h1{
@@ -123,4 +126,13 @@ right: 20px;
 }
 .task_create{
   margin-top: 10px;
+}
+.label_label{
+  margin-left: 20px;
+  margin-bottom: 0;
+}
+.label_id{
+  margin-top: 10px;
+  margin-left: 30px;
+  width: 330px;
 }

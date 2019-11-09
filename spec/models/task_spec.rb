@@ -54,16 +54,37 @@ RSpec.describe Task, type: :model do
     expect(result).to eq result1
   end
 
-  it 'タスク名とステータスで絞り込みできる' do
+  it 'ラベルで絞り込みできる' do
     FactoryBot.create(:task, user: current_user)
     FactoryBot.create(:second_task, user: current_user)
-    FactoryBot.create(:third_task, user: current_user)
-    result1 = FactoryBot.create(:forth_task, user: current_user)
+    result1 = task1 = FactoryBot.create(:third_task, user: current_user)
+    task2 = FactoryBot.create(:forth_task, user: current_user)
     FactoryBot.create(:fifth_task, user: current_user)
 
-    result = Task.search(task = {name: 'test_task_04', status: '完了'})[0]
+    label1 = FactoryBot.create(:label)
+
+    FactoryBot.create(:task_label, task: task1, label: label1)
+    FactoryBot.create(:second_task_label, task: task2, label: label1)
+
+    result = Task.search(task = {label_ids: ["1"]})[0]
 
     expect(result).to eq result1
+  end
+
+  it '3要素で絞り込みできる' do
+    FactoryBot.create(:task, user: current_user)
+    FactoryBot.create(:second_task, user: current_user)
+    result1 = task1 = FactoryBot.create(:third_task, user: current_user)
+    task2 = FactoryBot.create(:forth_task, user: current_user)
+    FactoryBot.create(:fifth_task, user: current_user)
+
+    label1 = FactoryBot.create(:label)
+
+    FactoryBot.create(:task_label, task: task1, label: label1)
+    FactoryBot.create(:second_task_label, task: task2, label: label1)
+
+    result = Task.search(task = {name: 'test_task_04', status: '中',  label_ids: ["1"]})
+
   end
 
   it 'ユーザーが削除されるとタスクも自動で削除される' do
