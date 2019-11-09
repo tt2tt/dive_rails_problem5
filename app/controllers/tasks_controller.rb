@@ -6,14 +6,16 @@ class TasksController < ApplicationController
 
   def index
     if params[:sort_expired]
-      @tasks = Task.sort_by_deadline.page(params[:page]).per(PER).my_task(current_user)
+      @tasks = current_user.tasks.sort_by_deadline
     elsif params[:sort_priority]
-      @tasks =Task.sort_by_priority.page(params[:page]).per(PER).my_task(current_user)
+      @tasks =current_user.tasks.sort_by_priority
     elsif params[:task]
-      @tasks = Task.search(params[:task] ).sort_by_crated_at.page(params[:page]).per(PER).my_task(current_user)
+      @tasks = current_user.tasks.search(params[:task] ).sort_by_crated_at
     else
-      @tasks = Task.sort_by_crated_at.page(params[:page]).per(PER).my_task(current_user)
+      @tasks = current_user.tasks.sort_by_crated_at
     end
+
+    @tasks = @tasks.page(params[:page]).per(PER)
   end
 
   def new
