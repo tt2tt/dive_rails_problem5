@@ -44,6 +44,9 @@
       <%= f.label :status %>
       <%= f.select :status, Task.status.options, include_blank: true, selected: '' %>
     </p>
+    <p>
+      <%= f.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+    </p>
       <%= f.submit '検索', id: 'search_button' %>
     <% end %>
   </div>

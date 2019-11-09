@@ -1,6 +1,6 @@
-<div class="task_form">
+<div class="form">
   <h1><%= "#{form_title}" %></h1>
-  <%= form_with(model: @task, local: true) do |form| %>
+  <%= form_with(model: @task, local: true) do |f| %>
   <% if @task.errors.any? %>
     <div id='error_explanation'>
       <ul>
@@ -11,54 +11,62 @@
     </div>
     <% end %>
 
-    <div class='task_title'>
-      <p>
-        <%= form.label :name %>
-      </p>
-      <p>
-        <%= form.text_field :name %>
-      </p>
+    <div class="task_form">
+      <div class='task_title'>
+        <p>
+          <%= f.label :name %>
+        </p>
+        <p>
+          <%= f.text_field :name %>
+        </p>
+      </div>
+
+      <div class='task_detail'>
+        <p>
+          <%= f.label :detail %>
+        </p>
+        <p>
+          <%= f.text_area :detail %>
+        </p>
+      </div>
+
+      <div class='task_deadline'>
+        <p>
+          <%= f.label :deadline %>
+        </p>
+        <p>
+          <%= f.datetime_select :deadline %>
+        </p>
+      </div>
+
+      <div class='task_status'>
+        <p>
+          <%= f.label :status %>
+        </p>
+        <p>
+          <%= f.select :status ,Task.status.options  %>
+        </p>
+      </div>
+
+      <div class="task_priority">
+        <p>
+          <%= f.label :priority %>
+        </p>
+        <p>
+          <%= f.select :priority, Task.priority.options %>
+        </p>
+      </div>
     </div>
 
-    <div class='task_detail'>
-      <p>
-        <%= form.label :detail %>
-      </p>
-      <p>
-        <%= form.text_area :detail %>
-      </p>
-    </div>
-
-    <div class='task_deadline'>
-      <p>
-        <%= form.label :deadline %>
-      </p>
-      <p>
-        <%= form.datetime_select :deadline %>
-      </p>
-    </div>
-
-    <div class='task_status'>
-      <p>
-        <%= form.label :status %>
-      </p>
-      <p>
-        <%= form.select :status ,Task.status.options  %>
-      </p>
-    </div>
-
-    <div class="task_priority">
-      <p>
-        <%= form.label :priority %>
-      </p>
-      <p>
-        <%= form.select :priority, Task.priority.options %>
-      </p>
+    <div class="task_labels_form">
+      <div class="task_label_label_id">
+        <%= f.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+      </div>
     </div>
 
     <p class="task_create">
       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <%= form.submit "#{form_name}", id: 'task_save' %>
+      <%= f.submit "#{form_name}", id: 'task_save' %>
     </p>
   <% end %>
 

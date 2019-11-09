@@ -20,6 +20,13 @@
       <%= link_to '削除', @task, method: :delete, data: { confirm: '本当に削除しますか?' },  class: 'btn btn-danger' %>
     </div>
     <br>
+
+    <% @labels.each do |label|%>
+    <p class='label'>
+      <%= label.name %><a href="#"> </a>
+    </p>
+    <% end %>
+
     <p>
       <%= link_to 'タスク一覧へ', tasks_path %>
     </p>

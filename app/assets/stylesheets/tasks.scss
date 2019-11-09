@@ -92,12 +92,21 @@ right: 20px;
   top: 130px;
   right: 350px;
 }
+.label{
+  display: inline;
+  background-color: #6FC;
+}
+.label a{
+  width: 10px;
+  background-color: #FFF;
+  pointer-events: none;
+}
 
 // form
-.task_form{
+.form{
   border: 1px solid #000;
-  width: 400px;
-  height: 470px;
+  width: 380px;
+  height: 500px;
   margin-top: 80px;
   margin-left: 530px;
 }
