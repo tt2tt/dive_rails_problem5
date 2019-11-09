@@ -59,8 +59,13 @@
     </div>
 
     <div class="task_labels_form">
-      <div class="task_label_label_id">
-        <%= f.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+      <div class="label_id">
+        <p class="label_label">
+          <%= f.label :ラベル %>
+        </p>
+        <p>
+          <%= f.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+        </p>
       </div>
     </div>
 
